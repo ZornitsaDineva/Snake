@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
+using System.Media;
+
+
 
 namespace Snake
 {
@@ -43,6 +46,13 @@ namespace Snake
             Console.BufferHeight = Console.WindowHeight;
             Console.CursorVisible = false;
             lastFoodTime = Environment.TickCount;
+
+            SoundPlayer player = new SoundPlayer
+            {
+                SoundLocation = AppDomain.CurrentDomain.BaseDirectory + "snake_music.wav"
+            };
+            player.PlayLooping();
+            //player.Play();
 
             List<Position> obstacles = new List<Position>()
             {
